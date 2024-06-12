@@ -56,3 +56,7 @@ When __pkg-config__ feature is used the installed __aubio__ library will be used
 To force build and link builtin version you can use __builtin__ feature.
 
 The features such as __fftw3__, __intelipp__, __accelerate__, __blas__, __atlas__ and __double__ is take an effect only for builtin _aubio_ C library.
+
+## Fork
+
+Default to `gcc-13` for compilation because aubio does NOT compile on gcc 14+

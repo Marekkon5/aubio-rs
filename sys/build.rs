@@ -7,6 +7,12 @@ const LIB_VER: &str = "0.4.9";
 
 fn main() {
     use std::env;
+    
+    // Set CC to gcc-13 so it compiles on modern OSes
+    #[cfg(target_os = "linux")]
+    if env::var("CC_x86_64-unknown-linux-gnu").is_err() {
+        env::set_var("CC_x86_64-unknown-linux-gnu", "gcc-13")
+    }
 
     #[cfg(any(not(feature = "bindgen"), feature = "update-bindings"))]
     fn bindings_filename(double: bool) -> String {
